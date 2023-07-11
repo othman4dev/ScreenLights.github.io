@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--This script was made by Othman Kharbouch from scratch, for contact : email/ otmankharbouch813@gmail.com-->
+<html id="html">
+    <head>
+        <script>
+            //This script for showing the loader.
+            window.setTimeout(function loader() { var loading = document.getElementById("loading");
+            loading.style.display = ("none");var content = document.getElementById("content"); content.style.display = ("block"); },2000);
+            loader();
+        </script>
+        <title>
+            Color changing screen
+        </title>
+        <link rel="icon" href="logo/colorful.png" type="image/x-icon">
+    </head>
+    <body>
+        <!--For color changing background we are using a video on loop mode-->
+        <video autoplay muted loop id="myVideo">
+            <source src="logo/Color changing screen.mp4" type="video/mp4" preload>
+        </video>
+        <div class="content" id="content">
+            <!-- A button to pause/play the video with JavaScript -->
+            <button id="myBtn" onclick="myFunction()">Pause</button>
+            <!-- To speed up/down the video -->
+            <button onclick="speedup1()" id="speedbtn">x0.5</button>
+            <button onclick="speedup2()" id="speedbtn1">x0.75</button>
+            <button onclick="speedup4()" id="speedbtn">x1</button>
+            <button onclick="speedup8()" id="speedbtn">x2</button>
+            <button onclick="speedup10()" id="speedbtn">x4</button>
+            <button onclick="speedup16()" id="speedbtn">x8</button>
+            <!--To show current speed-->
+            <button id="speed">Current speed is : 1</button>
+            <!--For fullScreen-->
+            <button id="full" onclick="var el = document.getElementById('html'); el.requestFullscreen();" id="full">
+                Fullscreen
+            </button>
+            <!--To hide the speed control menu on click-->
+            <button id="exit">X</button>
+        </div>
+        <!--To show back the speed control menu-->
+        <button id="show">
+            Show speed control
+        </button>
+    </body>
+    <div id="loading">
+        <img id="loading-image" src="logo/loading.gif" alt="Loading..." />
+    </div>  
+</html>
+<style>
+    html {
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        align-items: center;
+        align-content: center;
+    }
+    button {
+        margin-top: 5px;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: transparent;
+        height: 40px;
+        width: 90px;
+        color: black;
+        font-size: 1.5em;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    button:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .content {
+        display: none;
+        text-align: center;
+        box-shadow: black 0px 0px 1px 1px;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        color: #f1f1f1;
+        width: 90%;
+        padding: 20px;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    #speed {
+        font-size: 9pt;
+        width: 200px;
+        margin-top: 5px;
+        height: 40px;
+    }
+    #myBtn {
+        font-size: 20px;
+        width: 90px;
+        height: 40px;
+    }
+    #speedbtn {
+        width: 50px;
+        font-size: 16px;
+    }
+    #speedbtn1 {
+        width: 60px;
+        font-size: 16px;
+    }
+    #full  {
+        width: 120px;
+        font-size: 15px;
+    }
+    #exit {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 12px;
+        position: absolute;
+        top: 0;
+        right: 5px;
+    }
+    #show {
+        z-index: 1;
+        position: absolute;
+        font-size: 12px;
+        bottom: 20px;
+        left:50%;
+        transform: translate(-50%);
+        display: none;
+    }
+    #loading {
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        display: block;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.9);
+        transition: 0s;
+    }
+    #loading-image {
+        position: absolute;
+        width: 150px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 100;
+
+        }
+</style>
+<script>
+    // Get the video
+    var video = document.getElementById("myVideo");
+    // Get the button
+    var btn = document.getElementById("myBtn");
+    // Pause and play the video, and change the button text
+    function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+        video.pause();
+        btn.innerHTML = "Play";
+        }
+    }
+    // This Function for speed up
+    let vid = document.querySelector('video')
+    var speed = document.getElementById('speed')
+    var spdvalue = 1 ;
+    // the video in already slowed up so we are using *4 speed as default speed
+    //*15 as max speed and *1 as minimum speed
+    vid.playbackRate = 4 ;
+    function speedup1() {
+        vid.playbackRate = 1 ;
+        spdvalue = 0.5 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }
+    function speedup2() {
+        vid.playbackRate = 2 ;
+        spdvalue = 0.75 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }    
+    function speedup4() {
+        vid.playbackRate = 4 ;
+        spdvalue = 1 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }    
+    function speedup8() {
+        vid.playbackRate = 8 ;
+        spdvalue = 2 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }    
+    function speedup10() {
+        vid.playbackRate = 10 ;
+        spdvalue = 4 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }
+    function speedup16() {
+        vid.playbackRate = 15 ;
+        spdvalue = 8 ;
+        speed.innerText = "Current speed is : " + spdvalue ;
+    }
+    //function to hide/show speed control menu.
+    function exitBox() {
+        var btn = document.getElementById("exit");
+        var btn2 = document.getElementById("show");
+        btn.onclick = function() {
+            document.getElementById("content").style.display = "none";
+            document.getElementById("show").style.display = "block";
+        btn2.onclick = function() {
+            document.getElementById("content").style.display = "block";
+            document.getElementById("show").style.display = "none";
+        }
+        }
+    }
+    exitBox();
+</script>

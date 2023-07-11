@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--I made for every color his own page for less problems with the javaScript and for more control over the content and color of every page-->
+<html id="html">
+    <head>
+        <title>
+            Screen-Light / Forest green.
+        </title>
+        <link rel="icon" href="logo/forestcircle.png" type="image/x-icon">
+    </head>
+    <body>
+        <dialog id="dialog" open draggable="true">
+            <form method="dialog">
+                <p>Or Press F11 For On/Off FullScreen.</p>
+                <button>X</button>
+            </form>
+            </dialog>
+            <button onclick="var el = document.getElementById('html'); el.requestFullscreen();" id="full">
+            Go Full Screen!
+            </button>
+    </body>
+</html>
+<style>
+    html {
+        background-color: green;
+        color: black;
+        text-align: center;
+        overflow: hidden;
+    }
+    dialog {
+        border: none;
+        height: 20px;
+        width: 250px;
+        bottom: 50px;
+        background-color: rgb(41, 42, 53);
+        color: white;
+        border-radius: 9pt;
+        text-align: center;
+        align-items: center;
+        animation-name: fadein;
+        animation-duration: 2s;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        text-align: center;
+        vertical-align: middle;
+        margin-top: -13px;
+    }
+    p {
+        font-size: 11px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        color: white;
+        margin-left: 4px;
+        margin-top: -3px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    #full {
+        position: absolute;
+        transform: translate(-50%);
+        box-shadow: black 0px 0px 1px 2px;
+        color: black;
+        width: 150px;
+        height: 30px;
+        border-radius: 9pt;
+        cursor: pointer;
+        bottom: 120px;
+    }
+    @keyframes fadein {
+        0% {
+            margin-bottom: -150px;
+            box-shadow: unset;
+        }
+        50% {
+            margin-bottom: 0;
+            box-shadow: unset;
+        }
+        51% {
+            box-shadow: green 0px 0px 1px 2px, rgb(41, 42, 53) 0px 0px 1px 5px;
+        }
+        60% {
+            box-shadow: green 0px 0px 1px 10px, green 0px 0px 1px 12px;
+        }
+        75% {
+            box-shadow: unset;
+        }
+        80% {
+            box-shadow: green 0px 0px 1px 2px, rgb(41, 42, 53) 0px 0px 1px 5px;
+        }
+        90% {
+            box-shadow: green 0px 0px 1px 10px, green 0px 0px 1px 12px;
+        }
+    }
+    /*To make the fullscreen button and the dialog disappear in fullscreen mode*/
+    @media (device-width: 100vw) and (device-height: 100vh) {
+        dialog {
+            display: none;
+        }
+        #full {
+            display: none;
+        }
+    }
+    /* For Tablet View */
+    @media screen and (min-device-width: 768px)
+        and (max-device-width: 1024px) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        } 
+    }
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px)
+        and (orientation: portrait) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    }
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    }
+    /* For Mobile Phones Portrait or Landscape View */
+    @media screen
+    and (max-device-width: 640px) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    }
+    /* For iPhone 4 Portrait or Landscape View */
+    @media screen and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    }
+    /* For iPhone 5 Portrait or Landscape View */
+    @media (device-height: 568px)
+    and (device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    }
+    /* For iPhone 6 and 6 plus Portrait or Landscape View */
+    @media (min-device-height: 667px)
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+        #full {
+            margin-left: -75px;
+            transform: translate(0,-50px) scale(2.3);
+        }
+        dialog {
+            display: none;
+        }
+    };
+</style>

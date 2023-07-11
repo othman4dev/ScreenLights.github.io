@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<!--This website was made by Othman Kharbouch from scratch ,To contact with me :
+email: otmankharbouch813@gmail.com -->
+<html id="html">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Light For Screen - Turn Your Screen To A Led - Colored Screen With RGB Colors">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Othman Kharbouch">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Screen-Light / Use Your Screen For Light
+        </title>
+        <script src="script.js" type="text/javaScript"></script>
+        <link rel="icon" href="logo/screen-light logo.png" type="image/x-icon">
+    </head>
+    <body>
+        <div id="cursor"></div>
+        <div id="cursoe-border"></div>
+        <header>
+            <h1>Welcome To Screen-Light <img id="icon" src="logo/screen-light logo.png"></h1>
+        </header>
+        <main>
+            <hr id="hr">
+            <hr id="hr2">
+            <h2>Choose a color For Your Screen :</h2>
+            <hr id="hr3">
+            <br>
+            <fieldset>
+                <h2>Most Used Colors</h2>
+                <hr id="hr4">
+                <div class="buttons">
+                <a href="colors/white.html" >
+                    <button id="white" data-cursor="pointer">White</button>
+                </a>
+                <a href="colors/beige.html" >
+                    <button id="beige">Beige</button>
+                </a>
+                <a href="colors/red.html" >
+                    <button id="red">Red</button>
+                </a>
+                <a href="colors/blue.html"  >
+                    <button id="blue">Blue</button>
+                </a>
+                <a href="colors/green.html" >
+                    <button id="green">Green</button>
+                </a>
+                <a href="colors/pink.html" >
+                    <button id="pink">Pink</button>
+                </a>
+                <a href="colors/black.html">
+                    <button id="black">Black</button>
+                </a>
+                <a href="colors/forestgreen.html" >
+                    <button id="forestgreen">Forest green</button>
+                </a>
+                <a href="colors/purple.html" >
+                    <button id="purple">Purple</button>
+                </a>
+                <a href="colors/cyan.html" >
+                    <button id="cyan">Light blue</button>
+                </a>
+                <a href="colors/gray.html">
+                    <button id="gray">Gray</button>
+                </a>
+                <a href="colors/orange.html">
+                    <button id="orange">Orange</button>
+                </a>
+                <a href="colors/yellow.html">
+                    <button id="yellow">Yellow</button>
+                </a>
+                <a href="colors/Colorful.html">
+                    <button id="colorful"style="position: relative;">
+                        RGB Color Changing
+                    </button>
+                </a>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset class="colorpickerfield">
+                <h2>
+                    Pick a new color:
+                </h2>
+                <hr id="hr4">
+                <div class="colorpicker">
+                    <div id="form">
+                    <form autocomplete="off">
+                        <h3>Color Picker</h3>
+                        <label>
+                            <input type="color" name="color1" id="newcolor">
+                        </label>
+                        <button id="confirmbtn1" onclick="picker()">Generate</button>
+                    </form>
+                    </div>
+                    <div id="form">
+                    <br>
+                    <form autocomplete="off">
+                        <h3>Hex Code</h3>
+                        <label>
+                            <input type="text" value="#000000" id="hex" style="width:90px;text-transform: uppercase;background-color: transparent;border: none; box-shadow: brown 0px 0px 1px 1px; color: white; height: 27px; font-family: 'Courier New', Courier, monospace;">
+                        </label>
+                        <input type="button" id="confirmbtn2" onclick="changecolor()" value="Generate">
+                    </form>
+                    </div>
+                    <div id="forms">
+                    <form>
+                        <h3>RGB</h3>
+                        <label>
+                            <input type="number" class="rgb" size="3" max="255" id="red1" min="0" value="255" maxlength="3" style="text-transform: uppercase;background-color: red;width: 45px;border: none;height: 20px; font-family: 'Courier New', Courier, monospace;">
+                        </label>
+                        
+                        <label>
+                            <input type="number" class="rgb" size="3" maxlength="3" max="255" id="green1" value="255" min="0" style="text-transform: uppercase;background-color: green;width: 45px;border: none;height: 20px; font-family: 'Courier New', Courier, monospace;">
+                        </label>
+                        
+                        <label>
+                            <input type="number" class="rgb" size="3" maxlength="3" max="255" id="blue1" value="255" min="0" style="text-transform: uppercase;background-color: blue;width: 45px;border: none;color: white;height: 20px; font-family: 'Courier New', Courier, monospace;">
+                        </label>
+                        <br>
+                        <button id="confirmbtn3" onclick="rgb()" value="Generate">Generate</button>
+                    </form>
+                </div>
+                </div>
+            </fieldset>
+        </main>
+    </body>
+    <footer>
+        <div class="footer">
+            <p>
+                <small>Othman Kharbouch. All rights reserved &copy; 2023</small>
+                <a href="mailto:otmankharbouch813@gmail.com"><button id="contact">Contact me</button></a>
+            </p>
+        </div>
+    </footer>
+</html>
+<style>
+    
+    html {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgb(33, 33, 49);
+        color: aliceblue;
+        text-align: center;
+        margin-top: 100px;
+        cursor: default;
+        overflow-x: hidden;
+    }
+    main {
+        margin-bottom: 200px;
+    }
+    h2 {
+        text-align: center;
+    }
+    a {
+        margin-right: 10px;
+        color: rgb(33, 33, 49);
+    }
+    main button {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12pt;
+        width: 100px;
+        height: 60px;
+        border: none;
+    }
+    a,
+    main button {
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    a {
+        text-decoration: none;
+    }
+    fieldset {
+        border-width: 3px;
+        border-color: brown;
+        min-height: 200px;
+        border-radius: 18pt;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    form {
+        width: 100%;
+    }
+    input[type="color"] {
+        background-color: transparent;
+        border: none;
+        width: 100px;
+        height: 70px;
+        cursor: pointer;
+    }
+    form {
+        margin-left: 50%;
+        transform: translate(-50% , 0);
+        height: 100%;
+    }
+    input {
+        margin-top: 10px;
+    }
+    fieldset {
+        min-width: 200px;
+        border: none;
+        box-shadow: brown 0px 0px 1px 3px,rgba(0, 0, 0, 0) 0px 0px 6px 6px inset,rgba(0, 0, 0, 0.335) 0px 0px 12px 12px ;
+    }
+    span {
+        height: 59px;
+        position: absolute;
+        color: white;
+        top: 0;
+        font-weight: 900;
+        left: 0;
+        z-index: 99;
+    }
+    /*style scroll bars*/
+    html::-webkit-scrollbar {
+        scrollbar-color: black white;
+        width: 10px;
+    }
+    html::-webkit-scrollbar-track {
+        background-color: black;
+    }
+    html::-webkit-scrollbar-thumb {
+        background-color: brown;
+        border-radius: 25pt;
+        border: none;
+    }
+    html {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    /*Done*/
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+    .footer p {
+        text-align: center;
+        color: grey;
+    }
+    .footer p:hover {
+        color: rgb(182, 182, 182);
+        cursor: pointer;
+    }
+    .colorpicker {
+        margin-bottom: 40px;
+    }
+    .colorpicker hr {
+        border-color: brown;
+        width: 100%;
+        border:none ;
+        box-shadow: brown 0px 0px 1px 1px;
+    }
+    .rgb {
+        width: 50px;
+    }
+    .colorpickerfield {
+        max-width: 70%;
+        min-width: 50px;
+    }
+    .colorpickerfield h3 {
+        margin-top: 0px;
+        border-bottom: solid brown 2px;
+        border-radius: 0pt;
+        padding: 10px;
+    }
+    .colorpicker {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        vertical-align: middle;
+    }
+    .colorpicker div {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        align-self: center;
+        min-width: 25%;
+    }
+    #icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: -15px;
+        filter:drop-shadow(-12px 8px 8px rgb(112, 118, 79));
+    }
+    #colorful {
+        animation-name: bgcolor;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        font-size: 14px;
+    }
+    #colorful:hover {
+        animation-name: bgcolorhover ;
+        animation-timing-function: infinite,infinite;
+        animation-duration: 4s,4s;
+        animation-iteration-count: infinite,infinite;
+        cursor: pointer;
+    }
+    #copy {
+        color: gray;
+        font-size: 7pt;
+        margin-top: 200px;
+    }
+    #copy:hover {
+        color: whitesmoke;
+        cursor: grab;
+    }
+    #contact {
+        position: relative;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: transparent;
+        border: none;
+        box-shadow: grey 0px 0px 1px 1px;
+        height: 30px;
+        width: 80px;
+        font-size: 11px;
+        color: grey;
+        font-weight: 600;
+        text-align: center;
+        justify-content: center;
+        margin-left: 0px;
+    }
+    #contact:hover {
+        cursor: pointer;
+        transform: scale(110%);
+        box-shadow: rgb(182, 182, 182) 0px 0px 1px 1px;
+        color: rgb(182, 182, 182);
+    }
+    #white {
+        background-color: white;
+        color: black;
+    }
+    #beige {
+        background-color: beige;
+        color:  black;
+        width: 100px;
+    }
+    #red {
+        background-color: Red;
+        color: black;
+    } 
+    #blue {
+        background-color: blue;
+        color: white;
+    }
+    #green {
+        background-color: greenyellow;
+        color: black;
+    }
+    #pink {
+        background-color: pink;
+        color: black;
+    }
+    #black {
+        background-color: black;
+        color: azure;
+    }
+    #forestgreen {
+        background-color: forestgreen;
+        color: white;
+        font-size: 8pt;
+        width: 100px;
+    }
+    #purple {
+        background-color: purple;
+        color: aliceblue;
+    }
+    #cyan {
+        background-color: lightskyblue;
+        color: black;
+        font-size: 10pt;
+        width: 100px;
+    }
+    #gray {
+        background-color: Gray;
+        color: black;
+    }
+    #orange {
+        background-color: orange;
+        color: black;
+    }
+    #yellow {
+        background-color: yellow;
+        color: black;
+    }
+    #white:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , white 0px 0px 1px 6px;
+    }
+    #red:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , red 0px 0px 1px 6px;
+    }
+    #blue:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , blue 0px 0px 1px 6px;
+    }
+    #beige:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , beige 0px 0px 1px 6px;
+    }
+    #green:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , yellowgreen 0px 0px 1px 6px;
+    }
+    #pink:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , pink 0px 0px 1px 6px;
+    }
+    #black:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , black 0px 0px 1px 6px;
+    }
+    #forestgreen:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , green 0px 0px 1px 6px;
+    }
+    #purple:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , purple 0px 0px 1px 6px;
+    }
+    #cyan:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , lightblue 0px 0px 1px 6px;
+    }
+    #gray:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , gray 0px 0px 1px 6px;
+    }
+    #orange:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , orange 0px 0px 1px 6px;
+    }
+    #yellow:hover {
+        cursor: pointer;
+        box-shadow: rgb(33, 33, 49) 0px 0px 1px 3px , yellow 0px 0px 1px 6px;
+    }
+    #hr {
+        border: none;
+        box-shadow: brown 0px 0px 1px 1px;
+        width: 500px;
+    }
+    #hr2 {
+        margin-top: 50px;
+        border: none;
+        box-shadow: white 0px 0px 1px 1px;
+    }
+    #hr3 {
+        border: none;
+        box-shadow: white 0px 0px 1px 1px;
+    }
+    #hr4 {
+        width: 70%;
+        border: none;
+        box-shadow: brown 0px 0px 1px 1px;
+    }
+    #cursor {
+        position: fixed;
+        top: -5px;
+        left: -10px;
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 16px 16px;
+    }
+    #divhr {
+        min-width: unset;
+        width: 3px;
+        background-color: brown;
+        height: 200px;
+    }
+    #confirmbtn1 {
+        background-color: transparent;
+        box-shadow: brown 0px 0px 1px 2px;
+        border: none;
+        width: 90px;
+        height: 30px;
+        color: beige;
+        font-family:monospace;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    #confirmbtn2 {
+        background-color: transparent;
+        box-shadow: brown 0px 0px 1px 2px;
+        border: none;
+        width: 90px;
+        height: 30px;
+        color: beige;
+        font-family:monospace;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    #confirmbtn3 {
+        background-color: transparent;
+        box-shadow: brown 0px 0px 1px 2px;
+        border: none;
+        width: 90px;
+        height: 30px;
+        color: beige;
+        font-family:monospace;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    #confirmbtn1:hover,
+    #confirmbtn2:hover,
+    #confirmbtn3:hover {
+        transform: scale(1.2);
+        box-shadow: brown 0px 0px 0px 2px;
+        background-color: transparent;
+        transition: 0.5s;
+    }
+    #forms {
+        transform: translate(0%);
+        width: 100%;
+    }
+    @keyframes bgcolor {
+        0% {
+            background-color: red;
+        }
+        5% {
+            background-color: brown;
+            color: white;
+        }
+        10% {
+            background-color: purple;
+            color: white;
+        }
+        15% {
+            background-color: blue;
+            color: white;
+        }
+        20% {
+            background-color: green;
+        }
+        25% {
+            background-color: yellowgreen;
+            color: black;
+        }
+        30% {
+            background-color:yellow;
+            color: black;
+        }
+        35% {
+            background-color:orange;
+        }
+        40% {
+            background-color:orangered;
+        }
+        45% {
+            background-color: gray;
+            color: white;
+        }
+        50% {
+            background-color: red;
+        }
+        55% {
+            background-color: red;
+        }
+        60% {
+            background-color: brown;
+            color: white;
+        }
+        65% {
+            background-color: purple;
+            color: white;
+        }
+        70% {
+            background-color: blue;
+            color: white;
+        }
+        75% {
+            background-color: green;
+        }
+        80% {
+            background-color: yellowgreen;
+            color: black;
+        }
+        85% {
+            background-color:yellow;
+            color: black;
+        }
+        90% {
+            background-color: orange;
+        }
+        95% {
+            background-color: orangered;
+        }
+        100% {
+            background-color: red;
+        }
+    }
+    /*Animation for rgb color changing button*/
+    @keyframes bgcolorhover {
+        0% {
+            background-color: red;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,red 0px 0px 1px 6px;
+        }
+        5% {
+            background-color: brown;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,brown 0px 0px 1px 6px;
+            color: white;
+        }
+        10% {
+            background-color: purple;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,purple 0px 0px 1px 6px;
+            color: white;
+        }
+        15% {
+            background-color: blue;
+            box-shadow:  rgb(33, 33, 49) 0px 0px 1px 2px,blue 0px 0px 1px 6px;
+            color: white;
+        }
+        20% {
+            background-color: green;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,green 0px 0px 1px 6px;
+        }
+        25% {
+            background-color: yellowgreen;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,yellowgreen 0px 0px 1px 6px;
+            color: black;
+        }
+        30% {
+            background-color: yellow;
+            color: black;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,yellow 0px 0px 1px 6px;
+        }
+        35% {
+            background-color: orange;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,orange 0px 0px 1px 6px;
+        }
+        40% {
+            background-color: orangered;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,orangered 0px 0px 1px 6px;
+        }
+        45% {
+            background-color: grey;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,gray 0px 0px 1px 6px;
+            color: white;
+        }
+        50% {
+            background-color: red;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,red 0px 0px 1px 6px;
+        }
+        55% {
+            background-color: red;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,red 0px 0px 1px 6px;
+        }
+        60% {
+            background-color: brown;
+            color: white;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,brown 0px 0px 1px 6px;
+        }
+        65% {
+            background-color: purple;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,purple 0px 0px 1px 6px;
+            color: white;
+        }
+        70% {
+            background-color: blue;
+            color: white;
+            box-shadow:  rgb(33, 33, 49) 0px 0px 1px 2px,blue 0px 0px 1px 6px;
+        }
+        75% {
+            background-color: green;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,green 0px 0px 1px 6px;
+        }
+        80% {
+            background-color: yellowgreen;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,yellowgreen 0px 0px 1px 6px;
+        }
+        85% {
+            background-color: yellow;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,yellow 0px 0px 1px 6px;
+        }
+        90% {
+            background-color: orange;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,orange 0px 0px 1px 6px;
+        }
+        95% {
+            background-color: orangered;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,orangered 0px 0px 1px 6px;
+        }
+        100% {
+            background-color: red;
+            box-shadow: rgb(33, 33, 49) 0px 0px 1px 2px,red 0px 0px 1px 6px;
+        }
+    }
+    /* For Tablet View */
+    @media screen and (min-device-width: 768px)
+        and (max-device-width: 1024px) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px)
+        and (orientation: portrait) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For Mobile Phones Portrait or Landscape View */
+    @media screen
+    and (max-device-width: 640px) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For iPhone 4 Portrait or Landscape View */
+    @media screen and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For iPhone 5 Portrait or Landscape View */
+    @media (device-height: 568px)
+    and (device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #cursor {
+            display: none;
+        }
+    }
+    /* For iPhone 6 and 6 plus Portrait or Landscape View */
+    @media (min-device-height: 667px)
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+        #cursor {
+            display: none;
+        }
+    };
+    /*________________________________________________________*/
+</style>
+<script>
+    //This function for The hex code form to transform input data to the background color style.
+
+    function changecolor() {
+        var hex = document.getElementById("hex").value;
+        var btn = document.getElementById("confirmbtn1");
+        btn.style.backgroundColor = (hex);
+        //Added variable for purpose of checking if the value of the hex is actually a hex color, if not it alert a dialog.
+        var regex = /[0-9A-Fa-f]{6}/g;
+        if (hex.match(regex)){
+            document.write(`<html style="background-color:${hex}; width:100%; height:100%" id="html"><head><title>Hex Code : ${hex}</title></head>`)
+        document.write(`<button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:100px; position:absolute; transform:translate(-50%)" onclick="var el = document.getElementById('html'); el.requestFullscreen();" id="full">
+            Go Full Screen!
+            </button>
+            <a href="index.html"><button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:70px; position:absolute; transform:translate(-50%)" id="full">< Back</button></a>
+            <style>
+            @media all and (display-mode: fullscreen) {
+        #full {
+            display: none;
+        }
+}
+/* For Tablet View */
+    @media screen and (min-device-width: 768px)
+        and (max-device-width: 1024px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px)
+        and (orientation: portrait) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Phones Portrait or Landscape View */
+    @media screen
+    and (max-device-width: 640px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 4 Portrait or Landscape View */
+    @media screen and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 5 Portrait or Landscape View */
+    @media (device-height: 568px)
+    and (device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 6 and 6 plus Portrait or Landscape View */
+    @media (min-device-height: 667px)
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+        #full {
+            display: block;
+        }
+    };
+</style>`)
+        } else {
+            alert("Invalide Hex Code");
+        }
+    }
+    //This function for The color Picker form to transform input data to the background color style.
+    function picker() {
+        var hexcode = document.getElementById("newcolor").value;
+        var input = hexcode.toUpperCase();
+        document.write(`<html style="background-color:${input}; width:100%; height:100%" id="html"><head><title>Color Picker (${input})</title></head>`)
+        document.write(`<button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:100px; position:absolute; transform:translate(-50%)" onclick="var el = document.getElementById('html'); el.requestFullscreen();" id="full">
+            Go Full Screen!
+            </button>
+            <a href="index.html"><button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:70px; position:absolute; transform:translate(-50%)" id="full">< Back</button></a>
+            <style>
+            @media (device-width: 100vw) and (device-height: 100vh) {
+        #full {
+            display: none;
+        }
+}
+/* For Tablet View */
+    @media screen and (min-device-width: 768px)
+        and (max-device-width: 1024px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px)
+        and (orientation: portrait) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Phones Portrait or Landscape View */
+    @media screen
+    and (max-device-width: 640px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 4 Portrait or Landscape View */
+    @media screen and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 5 Portrait or Landscape View */
+    @media (device-height: 568px)
+    and (device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 6 and 6 plus Portrait or Landscape View */
+    @media (min-device-height: 667px)
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+        #full {
+            display: block;
+        }
+    };
+</style>`);
+    }
+    //This function for RGB form to transform input data to the background color style.
+    function rgb() {
+        var red1 = document.getElementById("red1").value;
+        var green1 = document.getElementById("green1").value;
+        var blue1 = document.getElementById("blue1").value;
+            document.write(`<html style="background-color:rgb(${red1},${green1},${blue1}); width:100%; height:100%" id="html"><head><title>RGB ( ${red1} , ${green1} , ${blue1} )</title></head>`);
+            document.write(`<button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:100px; position:absolute; transform:translate(-50%)" onclick="var el = document.getElementById('html'); el.requestFullscreen();" id="full">
+            Go Full Screen!
+            </button>
+            <a href="index.html"><button style="font-family:monospace;border-radius:9pt;;border:none;cursor:pointer;margin-left:50%;
+        bottom:70px; position:absolute; transform:translate(-50%)" id="full">< Back</button></a>
+            <style>
+            @media (device-width: 100vw) and (device-height: 100vh) {
+        #full {
+            display: none;
+        }
+}
+/* For Tablet View */
+    @media screen and (min-device-width: 768px)
+        and (max-device-width: 1024px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Portrait View */
+    @media screen and (max-device-width: 480px)
+        and (orientation: portrait) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Landscape View */
+    @media screen and (max-device-width: 640px)
+    and (orientation: landscape) {
+        #full {
+            display: block;
+        }
+    }
+    /* For Mobile Phones Portrait or Landscape View */
+    @media screen
+    and (max-device-width: 640px) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 4 Portrait or Landscape View */
+    @media screen and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 5 Portrait or Landscape View */
+    @media (device-height: 568px)
+    and (device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        #full {
+            display: block;
+        }
+    }
+    /* For iPhone 6 and 6 plus Portrait or Landscape View */
+    @media (min-device-height: 667px)
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+        #full {
+            display: block;
+        }
+    };
+</style>`);}
+const cursor = document.querySelector("#cursor");
+const cursorBorder = document.querySelector("#cursor-border");
+const cursorPos = { x: 0, y: 0 };
+const cursorBorderPos = { x: 0, y: 0 };
+
+document.addEventListener("mousemove", (e) => {
+    cursorPos.x = e.clientX;
+    cursorPos.y = e.clientY;
+
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+</script>
